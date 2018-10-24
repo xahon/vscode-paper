@@ -5,12 +5,22 @@ import * as striptags from "striptags";
 import * as vscode from "vscode";
 
 // interface IConfig {}
-// const outChannel: vscode.OutputChannel = vscode.window.createOutputChannel("VSCode Paper");
 // const config: IConfig = vscode.workspace.getConfiguration("paper-config");
+const outChannel: vscode.OutputChannel = vscode.window.createOutputChannel("VSCode Paper");
 
 let template: hbs.TemplateDelegate;
 
 export async function activate(context: vscode.ExtensionContext) {
+    // Taken from https://stackoverflow.com/a/9405113/6119618
+    hbs.registerHelper("ifStrEmpty", function(v1, options) {
+        if (v1 === "") {
+            // @ts-ignore
+            return options.fn(this);
+        }
+        // @ts-ignore
+        return options.inverse(this);
+    });
+
     template = hbs.compile(
         (await vscode.workspace.openTextDocument(path.resolve(context.extensionPath, "webview/preview.hbs"))).getText()
     );
@@ -62,8 +72,16 @@ path.lineTo(start + [ 100, -50 ]);`
 export function deactivate() {}
 
 function getHTML(documentContent: string): string {
-    const transformed = transform(striptags(documentContent), { presets: ["es2015"] });
-    return template({
-        userCode: transformed.code || "",
-    });
+    let userCode: string = "";
+    let error: string = "";
+
+    try {
+        const transformed = transform(striptags(documentContent), { presets: ["es2015"] });
+        userCode = transformed.code || "";
+    } catch (e) {
+        outChannel.append(`Error occurred: ${e}`);
+        error = e.toString();
+    }
+
+    return template({ userCode, error });
 }
