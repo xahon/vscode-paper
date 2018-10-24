@@ -3,6 +3,7 @@ import * as hbs from "handlebars";
 import * as path from "path";
 import * as striptags from "striptags";
 import * as vscode from "vscode";
+import { startingCode } from "./constants";
 
 // interface IConfig {}
 // const config: IConfig = vscode.workspace.getConfiguration("paper-config");
@@ -35,15 +36,7 @@ export async function activate(context: vscode.ExtensionContext) {
         );
 
         draft.edit((edit: vscode.TextEditorEdit) => {
-            // prettier-ignore
-            edit.insert(
-                new vscode.Position(0,0),
-`var path = new Path();
-path.strokeColor = 'black';
-var start = new Point(100, 100);
-path.moveTo(start);
-path.lineTo(start + [ 100, -50 ]);`
-            );
+            edit.insert(new vscode.Position(0, 0), startingCode);
         });
 
         const previewPanel: vscode.WebviewPanel = await vscode.window.createWebviewPanel(
