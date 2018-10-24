@@ -1,0 +1,69 @@
+{
+  "displayName": "VSCode Paper",
+  "name": "vscode-paper",
+  "description": "Extension that allows you to use paper.js right in your VSCode with live reloading",
+  "version": "0.0.1",
+  "publisher": "xahon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xahon/vscode-paper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xahon/vscode-paper/issues"
+  },
+  "homepage": "https://github.com/xahon/vscode-paper/blob/master/README.md",
+  "main": "./out/extension",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "vscode:prepublish": "npm run compile",
+    "watch": "tsc -watch -p ./"
+  },
+  "keywords": [
+    "paper.js",
+    "paperjs",
+    "drawing",
+    "vector",
+    "graphics"
+  ],
+  "contributors": [
+    {
+      "email": "chernikov.i123@gmail.com",
+      "name": "Ilya Chernikov"
+    }
+  ],
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.28.x"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-paper.openPreview",
+        "title": "Create Paper"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onCommand:vscode-paper.openPreview"
+  ],
+  "devDependencies": {
+    "@types/handlebars": "^4.0.39",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "@types/striptags": "^3.1.1",
+    "prettier": "^1.14.3",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.15.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.18"
+  },
+  "dependencies": {
+    "handlebars": "^4.0.12",
+    "striptags": "^3.1.1",
+    "path": "^0.12.7"
+  }
+}

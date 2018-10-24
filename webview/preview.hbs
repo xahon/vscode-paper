@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Paper VSCode</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 5px;
+            background: #eaeaea;
+            color: #1a1a1a;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        span {
+            flex: 0;
+            align-self: center;
+        }
+
+        canvas {
+            flex: 1;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.11.5/paper-full.min.js" defer></script>
+
+    <script type="text/paperscript" canvas="rootCanvas" defer>
+        {{{userCode}}}
+    </script>
+
+</head>
+
+<body>
+    <span>Paper.js for VSCode</span>
+    <canvas id="rootCanvas" resize></canvas>
+</body>
+
+</html>
