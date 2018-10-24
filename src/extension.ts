@@ -1,3 +1,4 @@
+import { transform } from "babel-standalone";
 import * as hbs from "handlebars";
 import * as path from "path";
 import * as striptags from "striptags";
@@ -61,7 +62,8 @@ path.lineTo(start + [ 100, -50 ]);`
 export function deactivate() {}
 
 function getHTML(documentContent: string): string {
+    const transformed = transform(striptags(documentContent), { presets: ["es2015"] });
     return template({
-        userCode: striptags(documentContent),
+        userCode: transformed.code || "",
     });
 }

@@ -13,6 +13,11 @@ It uses `paper.js` ([website](http://paperjs.org/), [repository](https://github.
 
 ![Example 3](readme-resources/vscode-paper3.gif)
 
+## Features
+
+1. Live reloading
+2. ES6 syntax support
+
 ## Installation
 
 `ext install vscode-paper`
@@ -21,7 +26,7 @@ It uses `paper.js` ([website](http://paperjs.org/), [repository](https://github.
 
 ### Using Command Palette (CMD + Shift + P)
 
-`CMD + Shift + P -> Create paper`
+`CMD + Shift + P -> Create a Paper`
 
 ## TODOs
 

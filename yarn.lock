@@ -177,6 +177,11 @@ babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
+babel-standalone@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-standalone/-/babel-standalone-6.26.0.tgz#15fb3d35f2c456695815ebf1ed96fe7f015b6886"
+  integrity sha1-Ffs9NfLEVmlYFevx7Zb+fwFbaIY=
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"

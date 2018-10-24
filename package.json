@@ -2,7 +2,7 @@
   "displayName": "VSCode Paper",
   "name": "vscode-paper",
   "description": "Extension that allows you to use paper.js right in your VSCode with live reloading",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "xahon",
   "repository": {
     "type": "git",
@@ -43,7 +43,7 @@
     "commands": [
       {
         "command": "vscode-paper.openPreview",
-        "title": "Create Paper"
+        "title": "Create a Paper"
       }
     ]
   },
@@ -62,8 +62,9 @@
     "vscode": "^1.1.18"
   },
   "dependencies": {
+    "babel-standalone": "^6.26.0",
     "handlebars": "^4.0.12",
-    "striptags": "^3.1.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "striptags": "^3.1.1"
   }
 }
